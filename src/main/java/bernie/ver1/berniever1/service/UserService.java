@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -41,7 +42,7 @@ public class UserService {
                         user.getPhone(),
                         user.getPassword(),
                         user.getRole().toString()
-                }).toList();
+                }).collect(Collectors.toList());
         try {
             byte[] excelData = excelService.exportDataToExcel(headers, data);
             ByteArrayInputStream bis = new ByteArrayInputStream(excelData);

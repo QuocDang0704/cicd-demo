@@ -1,11 +1,11 @@
 package bernie.ver1.berniever1.dto;
 
 import bernie.ver1.berniever1.config.Constant;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+// import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+// import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+// import org.apache.commons.lang3.builder.ToStringStyle;
 
 
 @Data
@@ -75,9 +75,9 @@ public class ResponseDTO {
         return res;
     }
 
-    public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
-    }
+    // public String toString() {
+    //     return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+    // }
 
 }
 
