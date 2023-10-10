@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM adoptopenjdk:11-jre-hotspot
 ARG JAR_FILE=target/*.jar
 WORKDIR /app
 COPY ${JAR_FILE} app.jar
