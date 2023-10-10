@@ -7,6 +7,7 @@ pipeline {
     }
     environment {
         MYSQL_ROOT_LOGIN = credentials('mysql-root-login')
+        dockerImage = 'dangquoc0704/springboot'
     }
     stages {
 
@@ -15,6 +16,13 @@ pipeline {
                 sh 'mvn --version'
                 sh 'java -version'
                 sh 'mvn package -DskipTests'
+            }
+        }
+        stage('Build docker image'){
+            steps{
+                script{
+                    sh "docker build -t ${dockerImage} ."
+                }
             }
         }
 
