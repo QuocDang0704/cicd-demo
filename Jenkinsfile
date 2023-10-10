@@ -29,19 +29,19 @@ pipeline {
         stage('Packaging/Pushing image') {
             steps {
                 echo 'Packaging/Pushing image'
-                // script {
-                //     def dockerImage = 'dangquoc0704/springboot' // Thay đổi tên image Docker của bạn
-                //     def registryCredentials = 'dockerhub' // Thay đổi tên thông tin đăng nhập trong Jenkins
+                script {
+                    def dockerImage = 'dangquoc0704/springboot' // Thay đổi tên image Docker của bạn
+                    def registryCredentials = 'dockerhub' // Thay đổi tên thông tin đăng nhập trong Jenkins
 
-                //     // Đăng nhập vào Docker Registry
-                //     withDockerRegistry(credentialsId: registryCredentials, url: 'https://index.docker.io/v1/') {
-                //         // Xây dựng image
-                //         sh "docker build -t ${dockerImage} ."
+                    // Đăng nhập vào Docker Registry
+                    withDockerRegistry(credentialsId: registryCredentials, url: 'https://index.docker.io/v1/') {
+                        // Xây dựng image
+                        // sh "docker build -t ${dockerImage} ."
 
-                //         // Đẩy image lên Docker Hub
-                //         sh "docker push ${dockerImage}"
-                //     }
-                // }
+                        // Đẩy image lên Docker Hub
+                        sh "docker push ${dockerImage}"
+                    }
+                }
             }
         }
 
