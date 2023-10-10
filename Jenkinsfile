@@ -18,15 +18,24 @@ pipeline {
             }
         }
 
-        stage('Packaging/Pushing imagae') {
-
+        stage('Packaging/Pushing image') {
             steps {
-                withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
-                    sh 'docker build -t dangquoc0704/springboot .'
-                    sh 'docker push dangquoc0704/springboot'
+                script {
+                    def dockerImage = 'dangquoc0704/springboot' // Thay đổi tên image Docker của bạn
+                    def registryCredentials = 'dockerhub' // Thay đổi tên thông tin đăng nhập trong Jenkins
+
+                    // Đăng nhập vào Docker Registry
+                    withDockerRegistry(credentialsId: registryCredentials, url: 'https://index.docker.io/v1/') {
+                        // Xây dựng image
+                        sh "docker build -t ${dockerImage} ."
+
+                        // Đẩy image lên Docker Hub
+                        sh "docker push ${dockerImage}"
+                    }
                 }
             }
         }
+
 
         // stage('Deploy MySQL to DEV') {
         //     steps {
