@@ -5,6 +5,9 @@ pipeline {
     tools { 
         maven 'my-maven' 
     }
+    environment {
+        MYSQL_ROOT_LOGIN = credentials('mysql-root-login')
+    }
     stages {
 
         stage('Build with Maven') {
@@ -46,8 +49,8 @@ pipeline {
     }
     post {
         // Clean after build
-        // always {
-        //     cleanWs()
-        // }
+        always {
+            cleanWs()
+        }
     }
 }
