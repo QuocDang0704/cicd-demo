@@ -46,8 +46,8 @@ pipeline {
     }
     post {
         // Clean after build
-        always {
-            cleanWs()
-        }
+        // always {
+        //     cleanWs()
+        // }
     }
 }
