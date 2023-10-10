@@ -1,7 +1,9 @@
 package bernie.ver1.berniever1.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.*;
+
 import bernie.ver1.berniever1.config.Constant;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
