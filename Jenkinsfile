@@ -44,7 +44,7 @@ pipeline {
                 }
             }
         }
-
+// ádasd
         stage('Deploy Spring Boot to DEV') {
             steps {
                 echo 'Deploying and cleaning'
